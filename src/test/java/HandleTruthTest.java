@@ -57,6 +57,19 @@ public class HandleTruthTest {
         expected.put(3, new HashSet<>(Arrays.asList("cat")));
         testcases.put(key, expected);
 
+        // Test 6
+        key = "Cat Rat";
+        expected = new TreeMap<>();
+        expected.put(1, new HashSet<>(Arrays.asList("Rat", "Cat")));
+        testcases.put(key, expected);
+
+        // Test 6
+        key = "cat CAT Cat CAT";
+        expected = new TreeMap<>();
+        expected.put(1, new HashSet<>(Arrays.asList("cat", "Cat")));
+        expected.put(2, new HashSet<>(Arrays.asList("CAT")));
+        testcases.put(key, expected);
+
         return testcases;
     }
 }
