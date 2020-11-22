@@ -5,17 +5,7 @@ import java.util.*;
 import static org.junit.Assert.assertEquals;
 
 public class HandleTruthTest {
-    @Test
-    public void makeshiftTest() {
-        Map<String, TreeMap<Integer, Set<String>>> testCases = getTestCases();
-
-        for (Map.Entry<String, TreeMap<Integer, Set<String>>> entry : testCases.entrySet()) {
-            Map<Integer, Set<String>> actual = HandleTruth.wordCount(entry.getKey());
-            assertEquals(entry.getValue(), actual);
-        }
-    }
-
-    public static Map<String, TreeMap<Integer, Set<String>>> getTestCases() {
+    public static Map<String, TreeMap<Integer, Set<String>>> getWordCountTestCases() {
         Map<String, TreeMap<Integer, Set<String>>> testcases = new HashMap<>();
 
         // Test 1
@@ -67,6 +57,24 @@ public class HandleTruthTest {
         expected.put(2, new HashSet<>(Arrays.asList("CAT")));
         testcases.put(key, expected);
 
+        // Test 7
+        key = "One Two Two Three Three Three";
+        expected = new TreeMap<>();
+        expected.put(1, new HashSet<>(Arrays.asList("One")));
+        expected.put(2, new HashSet<>(Arrays.asList("Two")));
+        expected.put(3, new HashSet<>(Arrays.asList("Three")));
+        testcases.put(key, expected);
+
         return testcases;
+    }
+
+    @Test
+    public void makeshiftTest() {
+        Map<String, TreeMap<Integer, Set<String>>> testCases = getWordCountTestCases();
+
+        for (Map.Entry<String, TreeMap<Integer, Set<String>>> entry : testCases.entrySet()) {
+            Map<Integer, Set<String>> actual = HandleTruth.wordCount(entry.getKey());
+            assertEquals(entry.getValue(), actual);
+        }
     }
 }

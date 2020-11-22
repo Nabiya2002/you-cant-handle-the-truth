@@ -18,7 +18,7 @@ public class HandleTruth {
     }
 
     // sort the map based on number of occurrences
-    protected static Map<Integer, Set<String>> getSortedMap(HashMap<String, Integer> wordMap) {
+    private static Map<Integer, Set<String>> getSortedMap(HashMap<String, Integer> wordMap) {
         Map<Integer, Set<String>> sortedMap = new TreeMap<>(Collections.reverseOrder());
         for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {
             int key = entry.getValue();
